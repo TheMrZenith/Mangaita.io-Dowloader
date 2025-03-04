@@ -23,7 +23,7 @@ def print_logo():
  Created by Zenith
  Github: https://github.com/ZenithRealm   
  Discord: https://discord.gg/6KM5GkJAYP       
- Project Repository: 
+ Project Repository: https://github.com/ZenithRealm/Mangaita.io-Dowloader
     """
     clear_screen()
     print(logo)
