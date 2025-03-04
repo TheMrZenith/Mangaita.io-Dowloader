@@ -49,4 +49,4 @@ The **config.json** file allows you to customize some settings, such as:
 
 ### 📝 License
 
-This project is distributed under the **MIT** license. For more details, see the file [LICENSE](LICENSE)
+This project is distributed under the **MIT** license. For more details, see the file [LICENSE](https://github.com/ZenithRealm/Mangaita.io-Dowloader/blob/main/LICENSE)
