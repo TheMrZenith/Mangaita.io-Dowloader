@@ -1,0 +1,5 @@
+{
+    "latest_first": true,
+    "create_pdf": true,
+    "download_type": "async"
+}
