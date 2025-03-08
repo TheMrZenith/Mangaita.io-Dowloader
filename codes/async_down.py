@@ -15,6 +15,31 @@ config_path = Path.cwd() / 'config' / 'config.json'
 with open(config_path, 'r') as config_file:
     config_data = json.load(config_file)
 
+# Determine base directory based on custom_save_path value
+base_save_path = config_data.get("custom_save_path", False)
+
+# Se custom_save_path è False, usa il percorso di base
+if base_save_path is False:
+    base_save_path = Path.cwd() / 'Manga'
+else:
+    base_save_path = Path(base_save_path)
+
+# Create Manga folder structure if allowed
+def create_manga_folder_structure():
+    if config_data.get("create_manga_folder", True):
+        manga_dir = base_save_path
+        manga_dir.mkdir(parents=True, exist_ok=True)
+        return manga_dir
+    return Path.cwd()  # Default to current directory if folder creation is disabled
+
+# Create Scan folder structure if allowed
+def create_scan_folder_structure(manga_dir):
+    if config_data.get("create_scan_folder", True):
+        scan_dir = manga_dir / "Scan"
+        scan_dir.mkdir(parents=True, exist_ok=True)
+        return scan_dir
+    return manga_dir  # If Scan folder creation is disabled, use the manga directory
+
 # Argument parsing
 def get_args():
     parser = argparse.ArgumentParser(description='Download Manga from https://mangaita.io/')
@@ -119,7 +144,11 @@ async def get_manga(args):
         return
 
     manga_name = Path(url.split("/")[-1])
-    manga_dir = Path.cwd() / 'Manga' / manga_name
+
+    # Use the custom manga folder or the default one
+    manga_dir = create_manga_folder_structure() / manga_name
+    scan_dir = create_scan_folder_structure(manga_dir)
+    
     manga_dir.mkdir(parents=True, exist_ok=True)
 
     download_info_path = manga_dir / 'download_info.txt'
@@ -148,10 +177,9 @@ async def get_manga(args):
                     # Estrai il numero del capitolo
                     chapter_number = int(re.search(r'\d+', str(chapter_title)).group())
 
-
                     # Se il capitolo è nel range specificato, scaricalo
                     if start_chapter <= chapter_number <= end_chapter:
-                        chapter_dir = manga_dir / chapter_title
+                        chapter_dir = scan_dir / chapter_title
                         chapter_dir.mkdir(parents=True, exist_ok=True)
 
                         print(f"Processing chapter: {chapter_title}")

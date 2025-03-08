@@ -1,5 +1,8 @@
 {
     "latest_first": true,
     "create_pdf": true,
-    "download_type": "async"
+    "download_type": "async",
+    "create_manga_folder": true,
+    "create_scan_folder": true,
+    "custom_save_path": false
 }

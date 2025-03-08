@@ -170,10 +170,13 @@ def customize_settings():
         print("------------------------")
         print(f"1 - Download latest posts first: {config['latest_first']}")
         print(f"2 - Create PDF for each chapter: {config['create_pdf']}")
-        print(f"3 - Create PDF for each chapter: {config['download_type']}")
-        print("4 - Back to the main menu")
+        print(f"3 - Download type: {config['download_type']}")
+        print(f"4 - Create Manga folder: {config['create_manga_folder']}")
+        print(f"5 - Create Scan folder: {config['create_scan_folder']}")
+        print(f"6 - Use custom path: {config['custom_save_path']}")
+        print("7 - Back to the main menu")
 
-        choice = input("\nChoose an option (1/2/3/4): ")
+        choice = input("\nChoose an option (1/2/3/4/5/6/7): ")
         
         if choice == '1':
             config['latest_first'] = not config['latest_first']
@@ -182,6 +185,35 @@ def customize_settings():
         elif choice == '3':
             config['download_type'] = 'async' if config['download_type'] == 'sync' else 'sync'
         elif choice == '4':
+            config['create_manga_folder'] = not config['create_manga_folder']
+        elif choice == '5':
+            config['create_scan_folder'] = not config['create_scan_folder']
+        elif choice == '6':
+            while True:
+                clear_screen()
+                print_logo()
+                print("Customize Save Path")
+                print("------------------------")
+                print("1 - Disable custom path")
+                print("2 - Enter custom path")
+                print("3 - Back to the previous menu")
+                choice = input("\nChoose an option (1/2/3): ")
+                if choice == '1':
+                    config['custom_save_path'] = False
+                if choice == '2':
+                    path = input("Enter the custom path: ")
+                    if os.path.exists(path):
+                        config['custom_save_path'] = path
+                    else:
+                        print("Invalid path. Please try again.")
+                        input("Press enter to continue...")
+                elif choice == '3':
+                    break
+                else:
+                    print("Invalid option. Please try again.")
+
+
+        elif choice == '7':
             print("Exiting settings menu...")
             break  # Esce dal ciclo e ritorna al main menu
         else:
