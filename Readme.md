@@ -30,11 +30,14 @@ python main.py
 ### 5️⃣ Follow the menu instructions to choose what you want to download or customize the program
 
 ### ⚙️ Functionality
-✅ Download a single chapter  
-✅ Download a range of chapters  
-✅ Download the entire manga  
-✅ Save chapters in neat folders  
-✅ Create a PDF of a chapter (optional)
+### ⚙️ Functionality
+✅ Download single chapter  
+✅ Download range of chapters  
+✅ Download entire manga  
+✅ Save chapters in folders  
+✅ Create PDF (optional)  
+✅ Create "Manga" and "Scan" folders (optional)  
+✅ Save to custom paths (optional)  
 
 ### 🔜 Coming Soon Functionality
 ⏳ GUI version  
