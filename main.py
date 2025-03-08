@@ -239,7 +239,7 @@ def main_menu():
         print("3 - Download chapters from a range of chapters")
         print("4 - Customize settings")
         print("5 - Exit from the program")
-        choice = input("Enter your choice(1/2/3/4/5): ")
+        choice = input("\nEnter your choice(1/2/3/4/5): ")
 
         if choice == "1":
             link = input("Link: ")
