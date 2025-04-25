@@ -14,7 +14,7 @@ Make sure you have installed:
 ### 2️⃣ Clone the repository
 
 ```sh
-git clone https://github.com/ZenithRealm/Mangaita.io-Downloader/
+git clone https://github.com/TheMrZenith/Mangaita.io-Downloader/
 ```
 
 ### 3️⃣ Navigate to the project directory
@@ -52,4 +52,4 @@ The **config.json** file allows you to customize some settings, such as:
 
 ### 📝 License
 
-This project is distributed under the **MIT** license. For more details, see the file [LICENSE](https://github.com/ZenithRealm/Mangaita.io-Dowloader/blob/main/LICENSE)
+This project is distributed under the **MIT** license. For more details, see the file [LICENSE](https://github.com/TheMrZenith/Mangaita.io-Dowloader/blob/main/LICENSE)
